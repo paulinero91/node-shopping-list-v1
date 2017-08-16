@@ -21,7 +21,19 @@ ShoppingList.create('peppers', 4);
 // when the root of this router is called with GET, return
 // all current ShoppingList items
 app.get('/shopping-list', (req, res) => {
+	console.log(ShoppingList.get());
   res.json(ShoppingList.get());
+});
+
+
+const {Recipes} = require('./models');
+
+Recipes.create('chocolate milk', ['cocoa', 'milk', 'sugar'])
+
+app.get('/recipes', (req, res) => {
+	console.log(Recipes.get());
+	res.json(Recipes.get());
+
 });
 
 app.listen(process.env.PORT || 8080, () => {
